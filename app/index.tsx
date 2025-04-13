@@ -47,4 +47,4 @@ export default Main;
 
 // npm run build
 // https://expo.dev/accounts/hazemm/projects/kalorydash
-// djej mosli
+// kitty kat
