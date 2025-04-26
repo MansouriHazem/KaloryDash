@@ -60,17 +60,6 @@ export default function CategoriesPage() {
           ))}
         </View>
       </ScrollView>
-
-      <View className="bg-gray-800 p-4 mt-auto">
-        <Text className="text-white text-center text-sm">Monastir</Text>
-        <Text className="text-white text-center text-sm">Tunisia</Text>
-        <View className="flex-row justify-center space-x-4 mt-2">
-          <Text className="text-white text-lg"></Text>
-          <Text className="text-white text-lg"></Text>
-          <Text className="text-white text-lg"></Text>
-          <Text className="text-white text-lg"></Text>
-        </View>
-      </View>
       <Botmenu />
     </SafeAreaView>
   );

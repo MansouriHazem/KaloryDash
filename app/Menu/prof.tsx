@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import { LogOut, Settings, User, ShoppingBag } from "lucide-react-native";
+import { LogOut, Settings, User, ShoppingBag, Key } from "lucide-react-native";
 import Botmenu from "@/common/Botmenu";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
@@ -44,16 +44,31 @@ export default function ProfileScreen() {
         </View>
 
         <View className="space-y-4 mt-6">
-          <TouchableOpacity className="flex-row items-center p-4 bg-gray-100 rounded-2xl">
+          <TouchableOpacity
+            onPress={() => {
+              router.push("/Menu/editprof");
+            }}
+            className="flex-row items-center p-4 bg-gray-100 rounded-2xl mb-4"
+          >
             <User color="#000" size={20} />
             <Text className="ml-4 text-base">Edit Profile</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => {
+              router.push("/Menu/changepassword" as any);
+            }}
+            className="flex-row items-center p-4 bg-gray-100 rounded-2xl  mb-4"
+          >
+            <Key color="#000" size={20} />
+            <Text className="ml-4 text-base">Change Password</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => {
               router.push("/Menu/cart");
             }}
-            className="flex-row items-center p-4 bg-gray-100 rounded-2xl"
+            className="flex-row items-center p-4 bg-gray-100 rounded-2xl  mb-4"
           >
             <ShoppingBag color="#000" size={20} />
             <Text className="ml-4 text-base">My Orders</Text>

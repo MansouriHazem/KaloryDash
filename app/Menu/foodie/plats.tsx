@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import Botmenu from "@/common/Botmenu";
 import { useLocalSearchParams } from "expo-router";
 import { data } from "@/data/data";
 import { CircleMinus, CirclePlus, Plus } from "lucide-react-native";
+import { AddPlateToUserOrders } from "@/firebase/orderServices";
 
 export default function MenuScreen() {
   const { resto, category } = useLocalSearchParams();
-  // const [added, setAdded] = useState(false);
-
-  // const HandleAdd = () => {
-  //   setAdded(!added);
-  // };
 
   const SelectedResto = data.find((oneItem) => {
     return oneItem.key === resto;
@@ -60,15 +63,14 @@ export default function MenuScreen() {
                   </Text>
                 </View>
                 <View className="w-1/3 flex items-center justify-center">
-                  <TouchableOpacity
-                    /*onPress={HandleAdd}*/ className="pt-2 pl-3"
+                  <Pressable
+                    onPress={() => {
+                      AddPlateToUserOrders(item.id, () => {});
+                    }}
+                    className="pt-2 pl-3"
                   >
-                    {/* {added ? ( */}
-                    {/* <CircleMinus size={25} color="orange" /> */}
-                    {/* ) : ( */}
                     <CirclePlus size={25} color="orange" />
-                    {/* )} */}
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               </View>
             </View>
