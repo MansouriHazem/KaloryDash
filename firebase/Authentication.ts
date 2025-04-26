@@ -185,4 +185,3 @@ export const updateUserDataService = async ({
     alert("Failed to update user: " + error.message);
   }
 };
-// some change
